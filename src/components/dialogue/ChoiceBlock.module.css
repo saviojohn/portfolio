@@ -1,0 +1,46 @@
+.choiceButton {
+  width: 100%;
+  text-align: left;
+  padding: var(--space-4) var(--space-6);
+  background-color: var(--color-bg-surface-2);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-subtle);
+  border-left: 3px solid transparent;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-2);
+  
+  /* Entrance animation variables, default hidden */
+  opacity: 0;
+  transform: translateY(10px);
+  animation: slideUpFadeIn 0.5s var(--ease-out-expo) forwards;
+}
+
+.choiceButton:hover,
+.choiceButton:focus-visible {
+  background-color: var(--color-bg-surface-3);
+  border-left-color: var(--color-accent-base);
+  box-shadow: -10px 0 20px -10px var(--color-accent-base);
+  outline: none;
+}
+
+@keyframes slideUpFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .choiceButton {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

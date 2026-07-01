@@ -1,0 +1,30 @@
+.iconLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  color: var(--color-text-secondary);
+  transition: all var(--duration-fast) var(--ease-out-expo);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+}
+
+.iconLink:hover {
+  color: var(--color-text-primary);
+}
+
+.iconLink:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-accent-base); /* Using 0 0 0 2px instead of full shadow for icon links */
+  color: var(--color-text-primary);
+}
+
+.iconLink:active {
+  transform: scale(0.96);
+}
+
+.label {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}

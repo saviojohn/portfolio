@@ -1,0 +1,17 @@
+.showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-6);
+  width: 100%;
+}
+
+.featuredItem {
+  grid-column: 1 / -1; /* spans full width */
+}
+
+@media (min-width: 1024px) {
+  .featuredItem {
+    /* Maybe span 2 columns on larger screens instead of full */
+    grid-column: span 2;
+  }
+}

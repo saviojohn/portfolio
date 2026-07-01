@@ -1,0 +1,27 @@
+.statement {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-regular);
+  color: var(--color-text-primary);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-8);
+}
+
+.word {
+  display: inline-block;
+  white-space: pre;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.instant .word {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

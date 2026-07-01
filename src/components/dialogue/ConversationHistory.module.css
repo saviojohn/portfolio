@@ -1,0 +1,53 @@
+.historyList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: 0 var(--space-4);
+}
+
+.historyItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.historyItem::before {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-border-subtle);
+}
+
+.historyItem.active::before {
+  background-color: var(--color-accent-base);
+}
+
+.rewindButton {
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  text-align: left;
+  padding: var(--space-1);
+  border-radius: var(--radius-sm);
+  transition: all var(--duration-fast) var(--ease-out-expo);
+}
+
+.rewindButton:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-surface-2);
+}
+
+.rewindButton:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-accent-base);
+}
+
+.active .rewindButton {
+  color: var(--color-text-primary);
+  font-weight: var(--weight-medium);
+}
