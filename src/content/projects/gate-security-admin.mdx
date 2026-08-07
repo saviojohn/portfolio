@@ -1,0 +1,20 @@
+---
+title: "Gate Security & Employee Outpass Management System"
+description: "Web application for enterprise gate pass issuance, employee security outpasses, camera QR code scanning check-in/out, and 80mm thermal receipt printing."
+featured: false
+publishedDate: "2024-11-01"
+tags: ["frontend", "fullstack"]
+tech: ["Next.js", "React", "TypeScript", "Redux Toolkit", "MUI", "Formik", "Yup", "QR Scanner", "@react-pdf/renderer"]
+problem: "Facility security desk needed a digital system to issue staff outpasses, scan visitor/item pass QR codes at entry gates, and print thermal receipt passes."
+solution: "Developed full Staff Outpass, Security Outpass, Employee CRUD modules, camera QR scanning modal, and 80mm thermal receipt print layouts using Next.js, Redux Toolkit, and MUI."
+architecture: "Next.js Pages Router application with Redux Toolkit async thunks, Formik dynamic array forms, browser camera QR scanner, and client-side PDF document generation."
+results: "Digitized facility gate entry and pass management, eliminating paper logbooks with instant QR code validation."
+metrics: "Authored ~7,100 lines of feature code across 42 files, integrating 17 REST endpoints and dynamic 80mm receipt generation."
+---
+
+## Key Capabilities
+
+- **Camera QR Check-In / Out Flow**: Modal camera scanner reading embedded pass payloads and executing automatic check-in/check-out timestamping.
+- **Thermal Receipt Printing**: Branded receipt generation customized for standard 80mm thermal printer output using `@react-pdf/renderer` and `react-to-print`.
+- **Dynamic Items Security Pass**: Outpass creation supporting dynamic multi-item arrays with validation for items leaving facility grounds.
+- **Excel Audit Export**: Client-side Excel log exporter using SheetJS for security audit compliance.

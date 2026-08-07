@@ -1,19 +1,23 @@
 import type { Metadata } from 'next';
-import { Playfair_Display, DM_Sans, JetBrains_Mono } from 'next/font/google';
+import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
+import { SkipLink } from '../components/a11y/SkipLink';
+import CircuitBackground from '../components/three/CircuitBackground';
+import { DialogueProvider } from '../context/DialogueContext';
+import { generatePersonSchema, generateWebSiteSchema } from '../lib/structured-data';
 
-const fontDisplay = Playfair_Display({
+const fontDisplay = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-display',
   display: 'swap',
-  weight: ['400', '700', '900'],
+  weight: ['500', '600', '700'],
 });
 
-const fontUi = DM_Sans({
+const fontBody = Inter({
   subsets: ['latin'],
-  variable: '--font-ui',
+  variable: '--font-body',
   display: 'swap',
-  weight: ['300', '400', '500', '700'],
+  weight: ['400', '500', '600'],
 });
 
 const fontMono = JetBrains_Mono({
@@ -27,32 +31,28 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
 export const metadata: Metadata = {
   title: {
-    default: 'The Dialogue | Portfolio',
-    template: '%s | The Dialogue',
+    default: 'Savio John | Full-Stack & Mobile Engineer',
+    template: '%s | Savio John',
   },
-  description: 'An interactive portfolio exploring frontend engineering, design systems, and creative technology.',
+  description: 'Full-Stack & Mobile Engineer portfolio featuring interactive 3D particle network and system architecture showcases.',
   metadataBase: new URL(siteUrl),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'The Dialogue | Portfolio',
-    description: 'An interactive portfolio exploring frontend engineering, design systems, and creative technology.',
+    title: 'Savio John | Full-Stack & Mobile Engineer',
+    description: 'Full-Stack & Mobile Engineer portfolio featuring interactive 3D particle network and system architecture showcases.',
     url: siteUrl,
-    siteName: 'The Dialogue',
+    siteName: 'Savio John Portfolio',
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'The Dialogue | Portfolio',
-    description: 'An interactive portfolio exploring frontend engineering, design systems, and creative technology.',
+    title: 'Savio John | Full-Stack & Mobile Engineer',
+    description: 'Full-Stack & Mobile Engineer portfolio featuring interactive 3D particle network and system architecture showcases.',
   },
 };
-
-import { SkipLink } from '../components/a11y/SkipLink';
-import { DialogueProvider } from '../context/DialogueContext';
-import { generatePersonSchema, generateWebSiteSchema } from '../lib/structured-data';
 
 export default function RootLayout({
   children,
@@ -66,7 +66,8 @@ export default function RootLayout({
     <html 
       lang="en" 
       data-theme="dark"
-      className={`${fontDisplay.variable} ${fontUi.variable} ${fontMono.variable}`}
+      className={`${fontDisplay.variable} ${fontBody.variable} ${fontMono.variable}`}
+      suppressHydrationWarning
     >
       <head>
         <script
@@ -78,12 +79,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body className="antialiased">
+      <body className="antialiased" suppressHydrationWarning>
         <SkipLink />
+        <CircuitBackground />
+        <div className="vignette" />
         <DialogueProvider>
-          <main id="main-content">
-            {children}
-          </main>
+          {children}
         </DialogueProvider>
       </body>
     </html>

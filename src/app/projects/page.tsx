@@ -2,38 +2,48 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllProjects } from '../../lib/content';
-import { ProjectCard } from '../../components/content/ProjectCard';
 import { SITE_NAME } from '../../lib/config';
+import { Header } from '../../components/layout/Header';
+import { Footer } from '../../components/layout/Footer';
 
 export const metadata: Metadata = {
-  title: `Projects | ${SITE_NAME.replace('[REPLACE: ', '').replace(']', '')}`,
-  description: 'A traditional index of all portfolio projects and case studies.',
+  title: `Projects | ${SITE_NAME}`,
+  description: 'Selected projects and technical case studies by Savio John.',
 };
 
 export default function ProjectsPage() {
   const projects = getAllProjects();
 
   return (
-    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'var(--space-8) var(--space-6)' }}>
-      <header style={{ marginBottom: 'var(--space-12)' }}>
-        <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-4xl)', marginBottom: 'var(--space-4)' }}>
-          Selected Works
-        </h1>
-        <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--text-lg)', marginBottom: 'var(--space-6)' }}>
-          A traditional, chronological index of case studies.
-        </p>
-        <div style={{ padding: 'var(--space-4)', backgroundColor: 'var(--color-bg-surface-2)', borderRadius: 'var(--radius-md)', display: 'inline-block' }}>
-          <Link href="/" style={{ color: 'var(--color-accent-base)', fontWeight: 'var(--weight-medium)', textDecoration: 'none' }}>
-            Want the interactive version? Start the conversation →
-          </Link>
-        </div>
-      </header>
+    <>
+      <Header />
+      <main>
+        <div className="panel" data-accent="backend">
+          <div className="panel-eyebrow">02 · projects</div>
+          <h2>Selected Works & Case Studies</h2>
+          <p className="panel-lede">
+            Spanning cross-platform mobile apps, real-time AI support platforms, retail admin panels, and Python backend APIs.
+          </p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 'var(--space-6)' }}>
-        {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
-        ))}
-      </div>
-    </div>
+          <div className="card-grid">
+            {projects.map((project) => (
+              <div key={project.slug} className="info-card">
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <div className="tags">
+                  {project.tech?.slice(0, 3).map((t) => (
+                    <span key={t}>{t}</span>
+                  ))}
+                </div>
+                <Link href={`/projects/${project.slug}`} className="card-link">
+                  View case study →
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </>
   );
 }

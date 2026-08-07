@@ -1,82 +1,66 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { SITE_NAME } from '../../lib/config';
-import { Badge } from '../../components/ui/Badge';
+import { SITE_NAME, SOCIAL_LINKS } from '../../lib/config';
+import { Header } from '../../components/layout/Header';
+import { Footer } from '../../components/layout/Footer';
 
 export const metadata: Metadata = {
-  title: `Meta | ${SITE_NAME.replace('[REPLACE: ', '').replace(']', '')}`,
-  description: 'How this portfolio was built. Tech stack, architecture, and design decisions.',
+  title: `Meta | ${SITE_NAME}`,
+  description: 'Architecture, technical design system, and implementation details of this portfolio.',
 };
 
 export default function MetaPage() {
-  const stack = ['Next.js 15', 'React 19', 'TypeScript', 'CSS Modules', 'GSAP', 'Three.js', 'MDX'];
+  const stack = ['Next.js 15 App Router', 'React 19', 'TypeScript', 'Three.js 3D Canvas', 'MDX Content Pipeline', 'Design System Tokens'];
 
   return (
-    <div style={{ maxWidth: '800px', margin: '0 auto', padding: 'var(--space-12) var(--space-6)', minHeight: '100vh' }}>
-      <header style={{ marginBottom: 'var(--space-12)' }}>
-        <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-4xl)', marginBottom: 'var(--space-4)' }}>
-          Meta
-        </h1>
-        <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--text-lg)', lineHeight: 'var(--leading-relaxed)' }}>
-          A portfolio is a product. This page documents how I built this one.
-        </p>
-      </header>
+    <>
+      <Header />
+      <main>
+        <div className="panel" data-accent="cloud">
+          <div className="panel-eyebrow">04 · architecture & meta</div>
+          <h2>A system, not a template.</h2>
+          <p className="panel-lede">
+            This portfolio is built as a complete software product: a custom dialogue state machine, procedural 3D Three.js circuit board canvas, and MDX content pipeline.
+          </p>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-12)' }}>
-        <section>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', marginBottom: 'var(--space-6)', borderBottom: '1px solid var(--color-border-subtle)', paddingBottom: 'var(--space-4)' }}>
-            The Tech Stack
-          </h2>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)' }}>
-            {stack.map((tech) => (
-              <Badge key={tech} label={tech} color="neutral" />
-            ))}
+          <div className="info-card" style={{ marginBottom: '24px' }}>
+            <h3>The Tech Stack</h3>
+            <p>Built with modern web standards and clean separation of concerns:</p>
+            <div className="tags">
+              {stack.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+            </div>
           </div>
-          <p style={{ marginTop: 'var(--space-6)', color: 'var(--color-text-secondary)', lineHeight: 'var(--leading-loose)' }}>
-            I chose Next.js App Router for the foundation to leverage Server Components for the MDX content layer, while keeping the interactive dialogue strictly client-side. CSS Modules were chosen over Tailwind to demonstrate fundamental CSS architecture and token-driven design.
-          </p>
-        </section>
 
-        <section>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', marginBottom: 'var(--space-6)', borderBottom: '1px solid var(--color-border-subtle)', paddingBottom: 'var(--space-4)' }}>
-            The Dialogue Engine
-          </h2>
-          <p style={{ color: 'var(--color-text-secondary)', lineHeight: 'var(--leading-loose)', marginBottom: 'var(--space-4)' }}>
-            Instead of a standard static site, I wanted the portfolio to feel like an interview. The dialogue engine is a custom state machine built entirely in React using a <code>useReducer</code> context. It parses a static JSON tree representing dialogue nodes and handles dynamic routing, memory persistence, and path rewinding.
-          </p>
-          <ul style={{ paddingLeft: 'var(--space-4)', color: 'var(--color-text-secondary)', lineHeight: 'var(--leading-loose)' }}>
-            <li>O(1) node lookup</li>
-            <li>localStorage sync for returning visitors</li>
-            <li>URL state sync for deep linking (e.g. sharing a specific conversation path)</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', marginBottom: 'var(--space-6)', borderBottom: '1px solid var(--color-border-subtle)', paddingBottom: 'var(--space-4)' }}>
-            Source Code
-          </h2>
-          <p style={{ color: 'var(--color-text-secondary)', lineHeight: 'var(--leading-loose)' }}>
-            The entire source code is available on GitHub. Feel free to fork it, learn from it, or critique it.
-          </p>
-          <div style={{ marginTop: 'var(--space-6)' }}>
-            <a 
-              href="[REPLACE: https://github.com/yourusername/portfolio]" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{ color: 'var(--color-accent-base)', fontWeight: 'var(--weight-medium)', textDecoration: 'none' }}
-            >
-              View on GitHub ↗
-            </a>
+          <div className="field-row">
+            <span className="label">3D Circuit Engine</span>
+            <span className="value">
+              Custom Three.js WebGL canvas rendering procedural Manhattan-style circuit traces, glowing signal pulses, mouse parallax tilt, and interactive choice selection highlights.
+            </span>
           </div>
-        </section>
 
-        <section style={{ textAlign: 'center', marginTop: 'var(--space-8)', paddingTop: 'var(--space-8)', borderTop: '1px solid var(--color-border-subtle)' }}>
-          <Link href="/?path=ROOT" style={{ color: 'var(--color-text-primary)', textDecoration: 'underline' }}>
-            Back to the conversation
-          </Link>
-        </section>
-      </div>
-    </div>
+          <div className="field-row">
+            <span className="label">Dialogue Engine & Memory</span>
+            <span className="value">
+              State-machine tree with O(1) node resolution, localStorage visit memory tracking, dynamic URL path state encoding, and step rewinding.
+            </span>
+          </div>
+
+          <div className="panel-actions" style={{ marginTop: '32px' }}>
+            {SOCIAL_LINKS.github && (
+              <a className="btn btn-primary" href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer">
+                View GitHub Source →
+              </a>
+            )}
+            <Link className="btn btn-ghost" href="/projects">
+              Browse Projects
+            </Link>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </>
   );
 }

@@ -1,0 +1,19 @@
+---
+title: "AI Customer Support & Real-Time Inbox App"
+description: "Mobile admin application for support agents managing multi-channel AI customer conversations (WhatsApp, Telegram, Instagram) with real-time WebSocket syncing."
+featured: true
+publishedDate: "2025-11-01"
+tags: ["mobile", "realtime", "state-management"]
+tech: ["Flutter", "Dart", "Provider", "Dio", "Socket.IO", "Material 3"]
+problem: "Support agents required a responsive mobile interface to handle concurrent real-time customer chats across multiple messaging channels with live updates and workspace analytics."
+solution: "Built the real-time messaging inbox, Socket.IO event handler, conversation state provider, unread badges, and agent assignment modules using Flutter and Provider."
+architecture: "Dual HTTP + WebSocket architecture connecting to microservices and real-time inbox gateways (`wss://api.*`), featuring payload normalization and socket event reconnect state logic."
+results: "Delivered live conversation management across multiple social platforms with smooth pagination and instant message state reflection."
+metrics: "Handled multi-channel inbox events across WhatsApp, Telegram, and Instagram with 20-item paginated lists and dual English/Japanese i18n support."
+---
+
+## Key Capabilities
+
+- **Real-Time Inbox Sync**: Socket.IO connection manager with dynamic reconnect, room joins, and unread badge counters.
+- **Multi-Channel Admin**: Single interface managing conversations across WhatsApp, Telegram, and Instagram channels.
+- **Workspace Analytics & Assignment**: Mobile UI for viewing agent assignment status, workspace analytics, and channel configurations.

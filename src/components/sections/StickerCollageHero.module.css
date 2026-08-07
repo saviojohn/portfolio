@@ -1,0 +1,148 @@
+.heroContainer {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.stickerLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  max-width: var(--layout-content-max);
+  margin: 0 auto;
+}
+
+.stickerCard {
+  position: absolute;
+  pointer-events: auto;
+  background: var(--color-bg-surface-2);
+  border: 1px solid var(--color-border-interactive);
+  border-radius: 8px;
+  padding: var(--space-3) var(--space-4);
+  box-shadow: var(--shadow-md);
+  cursor: grab;
+  user-select: none;
+  max-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  transition: border-color var(--duration-fast), box-shadow var(--duration-fast);
+}
+
+.stickerCard:active {
+  cursor: grabbing;
+}
+
+.stickerCard:hover,
+.stickerCard:focus-visible {
+  border-color: var(--color-accent-base);
+  box-shadow: 0 8px 24px var(--color-accent-glow);
+  outline: 2px solid var(--color-accent-base);
+  outline-offset: 2px;
+  z-index: 30;
+}
+
+.stickerCategory {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-text-accent);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+}
+
+.stickerTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-primary);
+  line-height: var(--leading-snug);
+}
+
+.stickerSubtext {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+}
+
+.contentLayer {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+}
+
+.scrollAnchor {
+  position: absolute;
+  bottom: var(--space-6);
+  z-index: 20;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-widest);
+  text-decoration: none;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 9999px;
+  background: rgba(22, 22, 24, 0.7);
+  backdrop-filter: blur(8px);
+  transition: color var(--duration-fast), border-color var(--duration-fast);
+}
+
+.scrollAnchor:hover,
+.scrollAnchor:focus-visible {
+  color: var(--color-text-primary);
+  border-color: var(--color-accent-base);
+}
+
+/* Individual Sticker Positions around Hero Center */
+.pos0 {
+  top: 12%;
+  left: 6%;
+}
+
+.pos1 {
+  top: 16%;
+  right: 6%;
+}
+
+.pos2 {
+  bottom: 22%;
+  left: 8%;
+}
+
+.pos3 {
+  bottom: 24%;
+  right: 10%;
+}
+
+.pos4 {
+  top: 42%;
+  left: 4%;
+}
+
+@media (max-width: 1024px) {
+  .pos4 {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .pos0 {
+    top: 6%;
+    left: 4%;
+  }
+  .pos1 {
+    top: 8%;
+    right: 4%;
+  }
+  .pos2,
+  .pos3 {
+    display: none;
+  }
+}

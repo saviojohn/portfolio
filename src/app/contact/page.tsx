@@ -2,51 +2,91 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { SITE_NAME, SOCIAL_LINKS } from '../../lib/config';
 import { ContactForm } from '../../components/forms/ContactForm';
-import { IconLink } from '../../components/ui/IconLink';
+import { Header } from '../../components/layout/Header';
+import { Footer } from '../../components/layout/Footer';
 
 export const metadata: Metadata = {
-  title: `Contact | ${SITE_NAME.replace('[REPLACE: ', '').replace(']', '')}`,
-  description: 'Get in touch for projects, speaking, or just to say hi.',
+  title: `Contact | ${SITE_NAME}`,
+  description: 'Get in touch for engineering projects, collaborations, or technical opportunities.',
 };
 
 export default function ContactPage() {
-  const dummyIcon = (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-  );
-
   return (
-    <div style={{ maxWidth: '800px', margin: '0 auto', padding: 'var(--space-12) var(--space-6)', minHeight: '100vh' }}>
-      <header style={{ marginBottom: 'var(--space-12)' }}>
-        <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-4xl)', marginBottom: 'var(--space-4)' }}>
-          Contact
-        </h1>
-        <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--text-lg)', lineHeight: 'var(--leading-relaxed)' }}>
-          If you skipped the dialogue and came straight here — I respect the efficiency. Let&apos;s talk about what you&apos;re building.
-        </p>
-      </header>
+    <>
+      <Header />
+      <main>
+        <div className="panel" data-accent="ai">
+          <div className="panel-eyebrow">03 · collaboration & contact</div>
+          <h2>Open to the right kind of project.</h2>
+          <p className="panel-lede">
+            Interested in collaborations that stretch across the stack, especially anything touching mobile, real-time messaging, or applied AI.
+          </p>
+          {/* --- New Collaboration Details Section --- */}
+          <h3>03 · collaboration</h3>
+          <p className="panel-lede">
+            Genuinely interested in collaborations that stretch across the stack, especially anything touching cross‑platform mobile, real‑time architectures, or applied AI.
+          </p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 'var(--space-12)' }}>
-        <section>
-          <ContactForm />
-        </section>
-
-        <section style={{ borderTop: '1px solid var(--color-border-subtle)', paddingTop: 'var(--space-8)' }}>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-xl)', marginBottom: 'var(--space-6)' }}>
-            Other ways to connect
-          </h2>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-4)' }}>
-            {Object.entries(SOCIAL_LINKS).map(([platform, url]) => (
-              <IconLink 
-                key={platform} 
-                href={url} 
-                icon={dummyIcon} 
-                label={platform} 
-                external 
-              />
-            ))}
+          <div className="field-row">
+            <span className="label">Currently open to</span>
+            <span className="value">Full‑stack &amp; Mobile engineering roles, high‑impact contract projects</span>
           </div>
-        </section>
-      </div>
-    </div>
+
+          <div className="field-row">
+            <span className="label">Best way to reach me</span>
+            <span className="value">
+              Email <a href="https://mail.google.com/mail/?view=cm&fs=1&to=savio.john.t@gmail.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--amber)', textDecoration: 'none' }}>savio.john.t@gmail.com</a> or&nbsp;
+              <a href="https://www.linkedin.com/in/savio-john-b927821b5/" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">LinkedIn</a>
+            </span>
+          </div>
+
+          <div className="field-row">
+            <span className="label">Response time</span>
+            <span className="value">Usually within 24 hours</span>
+          </div>
+          <div className="field-row">
+            <span className="label">Location</span>
+            <span className="value">Kochi, Kerala, India</span>
+          </div>
+
+          <div className="field-row">
+            <span className="label">Currently Open To</span>
+            <span className="value">Full-time roles, contract work, high-impact technical consulting</span>
+          </div>
+
+          <div className="field-row">
+            <span className="label">Direct Email</span>
+            <span className="value">
+              <a href={`mailto:${SOCIAL_LINKS.email}`} style={{ color: 'var(--amber)', textDecoration: 'none' }}>
+                {SOCIAL_LINKS.email}
+              </a>
+            </span>
+          </div>
+
+          <div className="field-row" style={{ marginBottom: '32px' }}>
+            <span className="label">Social & Professional Channels</span>
+            <div className="panel-actions" style={{ marginTop: '8px' }}>
+              {SOCIAL_LINKS.linkedin && (
+                <a className="btn btn-primary" href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer">
+                  LinkedIn
+                </a>
+              )}
+              {SOCIAL_LINKS.github && (
+                <a className="btn btn-ghost" href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer">
+                  GitHub
+                </a>
+              )}
+            </div>
+          </div>
+
+          <div className="info-card">
+            <h3>Send a Message</h3>
+            <p style={{ marginBottom: '16px' }}>Or leave a note directly using the form below:</p>
+            <ContactForm />
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </>
   );
 }

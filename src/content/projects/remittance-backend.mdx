@@ -1,0 +1,20 @@
+---
+title: "Remittance System Backend & FCM Push Pipeline"
+description: "Asynchronous Python FastAPI system-of-record backend managing money transfers, device registrations, push notification dispatch queues, and AWS SES emails."
+featured: true
+publishedDate: "2026-07-15"
+tags: ["backend", "architecture", "fullstack"]
+tech: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Alembic", "RabbitMQ", "Redis", "FCM", "AWS SES"]
+problem: "High-volume transfer updates required scalable notification delivery across thousands of mobile devices without blocking core HTTP API response times."
+solution: "Engineered an asynchronous push notification pipeline using RabbitMQ, Celery/async workers, Redis rate-limiting, and Firebase Admin SDK FCM multicast. Owned customer forgot-password and AWS SES email templates with embedded media."
+architecture: "FastAPI REST backend backed by PostgreSQL (SQLAlchemy 2.0 async), Alembic migrations, Redis caching layer, and RabbitMQ worker queue consuming FCM push dispatch payloads."
+results: "Built asynchronous device registration, TTL stale token cleanup workers, deduplication mechanisms, and transaction status alerts."
+metrics: "Over 970 lines of notification architecture, default rate limit of 10 pushes/min per user, 60s deduplication window, and automatic stale token purging."
+---
+
+## Key Capabilities
+
+- **FCM Push Dispatch Pipeline**: RabbitMQ queue consumer that formats and delivers iOS APNs & Android FCM payloads asynchronously.
+- **Smart Notification Suppressor**: Automatically suppresses tray push alerts when a customer is currently active inside the chat screen.
+- **Device Hygiene & TTL**: Background cleanup worker enforcing 90-day device record TTL and removing invalidated APNs/FCM tokens.
+- **Transactional SES Emailing**: Integrated AWS SES via boto3 with HTML formatting and CID-embedded branding.

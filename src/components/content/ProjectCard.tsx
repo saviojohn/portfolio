@@ -13,7 +13,7 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  const cardRef = useRef<HTMLAnchorElement>(null);
+  const cardRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const card = cardRef.current;
@@ -49,14 +49,18 @@ export function ProjectCard({ project }: ProjectCardProps) {
   );
 
   return (
-    <Link href={`/projects/${project.slug}`} className={styles.card} ref={cardRef}>
+    <article className={styles.card} ref={cardRef}>
       <div className={styles.imageWrapper}>
         {/* Placeholder image since coverImage isn't in types yet */}
         <div style={{ width: '100%', height: '100%', backgroundColor: 'var(--color-bg-surface-3)' }} />
       </div>
       <div className={styles.content}>
         <div className={styles.header}>
-          <h3 className={styles.title}>{project.title}</h3>
+          <h3 className={styles.title}>
+            <Link href={`/projects/${project.slug}`} className={styles.titleLink}>
+              {project.title}
+            </Link>
+          </h3>
         </div>
         
         {project.description && (
@@ -76,6 +80,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <IconLink href="#" icon={dummyIcon} label="GitHub" external />
         </div>
       </div>
-    </Link>
+    </article>
   );
 }

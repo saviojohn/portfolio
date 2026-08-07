@@ -1,8 +1,8 @@
 import { SITE_NAME, SITE_URL, SOCIAL_LINKS } from './config';
 import type { BlogPost, Project } from './types';
 
-const baseUrl = SITE_URL.replace('[REPLACE: ', '').replace(']', '');
-const cleanName = SITE_NAME.replace('[REPLACE: ', '').replace(']', '');
+const baseUrl = SITE_URL;
+const cleanName = SITE_NAME;
 
 export function generatePersonSchema() {
   return {
@@ -10,7 +10,7 @@ export function generatePersonSchema() {
     '@type': 'Person',
     name: cleanName,
     url: baseUrl,
-    jobTitle: 'Software Engineer', // Based on the About page bio
+    jobTitle: 'Full-Stack & Mobile Engineer',
     sameAs: Object.values(SOCIAL_LINKS),
   };
 }

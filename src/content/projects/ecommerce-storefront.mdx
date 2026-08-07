@@ -1,0 +1,20 @@
+---
+title: "High-Volume Retail E-Commerce Storefront"
+description: "Retail e-commerce storefront web application with App Router architecture, Razorpay payment gateway integration, GTM analytics instrumentation, and user address/profile management."
+featured: false
+publishedDate: "2024-05-15"
+tags: ["frontend", "fullstack"]
+tech: ["Next.js", "React", "TypeScript", "Redux Toolkit", "MUI", "Razorpay", "Google Tag Manager"]
+problem: "Retail customer experience required seamless product discovery, optimistic address book updates, wishlist tracking, and full Google Tag Manager ecommerce telemetry."
+solution: "Developed customer profile & avatar upload modules, full address book CRUD with optimistic updates, wishlist sync, order invoice downloads, and GTM event telemetry."
+architecture: "Next.js 13 App Router storefront using Next-Auth JWT session management, Redux Toolkit state slices, Axios microservice gateway calls, and GTM dataLayer push hooks."
+results: "Delivered a responsive e-commerce shopping platform with analytics instrumentation for user interactions from cart to checkout."
+metrics: "Integrated 7 core microservices (`zu`, `od`, `pr`, `ms`, `cm`, `ff`, `py`) with full client-side address & profile management."
+---
+
+## Key Capabilities
+
+- **Address Book Management**: Full CRUD address manager with optimistic UI updates and GTM telemetry (`add_address`, `remove_address`).
+- **Wishlist Telemetry Sync**: Synchronized wishlist state across product grids, detailed views, and GTM tracking (`add_to_wishlist`).
+- **Profile Avatar Uploads**: Multipart image upload pipeline via `react-dropzone` with CDN integration.
+- **Invoice PDF Blob Downloads**: Blob-based client invoice PDF downloader handling dual guest and authenticated session headers.

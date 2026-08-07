@@ -5,6 +5,7 @@ import React, { createContext, useReducer, useEffect } from 'react';
 import type { DialogueNode, DialogueChoice, DialoguePath, DialogueMemory } from '../lib/dialogue/types';
 import { getNode, getChoices, getCoverage } from '../lib/dialogue/engine';
 import { loadMemory, updateMemory, clearMemory } from '../lib/dialogue/memory';
+import ClientCircuitBackground from '../components/three/ClientCircuitBackground';
 
 // --- State Types ---
 interface DialogueState {

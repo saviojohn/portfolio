@@ -1,0 +1,20 @@
+---
+title: "Cross-Border Money Transfer Mobile App"
+description: "A production cross-platform iOS & Android application for international money transfers with multi-currency wallets, live FX quotes, and real-time transaction tracking."
+featured: true
+publishedDate: "2026-07-01"
+tags: ["mobile", "fullstack", "architecture", "state-management"]
+tech: ["Flutter", "Dart", "Riverpod", "Dio", "Socket.IO", "GoRouter", "Firebase FCM"]
+problem: "International money transfer required a high-reliability mobile app with instant session restoration, token handling without refresh stampedes, live rate quotes, and dual-language localization (English and Japanese)."
+solution: "Built the mobile client end-to-end using Flutter and Riverpod. Implemented single-flight authentication token refresh via custom Dio interceptors, WebSocket streaming for rates/wallets, and localized string resolution for ~1,200 keys across English and Japanese."
+architecture: "Layered domain architecture with Riverpod state management, dynamic GoRouter route guards, secure local storage, real-time Socket.IO event listeners, and APNs/FCM push notification deep links."
+results: "Delivered production-ready iOS and Android app packages with robust offline session recovery and low-latency transfer state updates."
+metrics: "Supports 52 API endpoints, 2 languages with 1,200+ translation keys, and single-flight 401 token refresh concurrency."
+---
+
+## Key Capabilities
+
+- **Session & Auth Coordinator**: Handles JWT renewal with single-flight locking to prevent concurrent API calls from triggering duplicate auth refresh cycles.
+- **Real-Time Wallet & Rate Updates**: Socket.IO integration for live updates to wallet balances, exchange rates, and ongoing transfer statuses.
+- **Bi-lingual Localization**: Dynamic runtime switching between English and Japanese across 1,200+ UI strings.
+- **Secure File & Identity Uploads**: S3 presigned URL upload flow for identity verification documents (KYC).

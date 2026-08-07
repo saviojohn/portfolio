@@ -1,0 +1,19 @@
+---
+title: "Multi-Module Retail E-Commerce Admin Platform"
+description: "Enterprise management panel for high-volume retail e-commerce, owning orders management, promotional sales CRUD, invoice generation, and customer account administration."
+featured: false
+publishedDate: "2024-06-01"
+tags: ["frontend", "fullstack"]
+tech: ["Next.js", "React", "TypeScript", "Redux Toolkit", "MUI", "Formik", "Yup", "Axios"]
+problem: "E-commerce operations staff required a mobile-responsive admin application to process order lifecycles across 13 distinct statuses, configure promotional sales campaigns, and update shipment details."
+solution: "Built the Orders management suite, Sales/Promotions CRUD engine with media uploads, customer creation modules, and responsive order timeline views using Next.js and Redux Toolkit."
+architecture: "Redux Toolkit sliced architecture consuming gateway microservices (`/od` orders, `/pr` products/sales, `/zu` users), Formik validation schemas, and mobile-responsive MUI layouts."
+results: "Streamlined daily retail store operations, enabling instant order tracking updates, promotional campaign scheduling, and PDF invoice downloads."
+metrics: "Handled 13 order lifecycle statuses, multi-media upload thunks, and responsive layout adaptations for desktop and mobile."
+---
+
+## Key Capabilities
+
+- **Orders & Shipment Tracker**: Comprehensive order list & detail views supporting shipment partner updates, tracking numbers, and interactive status timelines.
+- **Promotions & Sales CRUD**: Form engine managing promotional banners, handle handle slug generation, stackable discount flags, and SEO metadata.
+- **Invoice Blob Exporter**: Client-side blob fetching and download generation for customer invoice PDFs.

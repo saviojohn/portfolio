@@ -1,24 +1,12 @@
 'use client';
 
-import React, { useEffect } from 'react';
-import Link from 'next/link';
-import { SOCIAL_LINKS } from '../../lib/config';
+import React from 'react';
+import { SITE_NAME, SOCIAL_LINKS } from '../../lib/config';
 import { clearMemory } from '../../lib/dialogue/memory';
 import { useDialogue } from '../../hooks/useDialogue';
-import { IconLink } from '../ui/IconLink';
-import styles from './Footer.module.css';
 
 export function Footer() {
   const { reset } = useDialogue();
-
-  useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.log(
-      "%cHello curious developer! \n%cI see you peeking under the hood. The source code for this site's dialogue engine is open and available on my GitHub.",
-      "font-size: 16px; font-weight: bold; color: #a855f7;",
-      "font-size: 12px; color: #9494a0;"
-    );
-  }, []);
 
   const handleClearMemory = () => {
     clearMemory();
@@ -31,44 +19,45 @@ export function Footer() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Basic SVG icons for social links
-  const icons = {
-    github: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-    ),
-    linkedin: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-    ),
-    twitter: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
-    ),
-    email: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-    )
-  };
-
   return (
-    <footer className={styles.footer}>
-      <div className={styles.top}>
-        <div className={styles.socials}>
-          {Object.entries(SOCIAL_LINKS).map(([platform, url]) => (
-            <IconLink 
-              key={platform} 
-              href={url} 
-              icon={icons[platform as keyof typeof icons]} 
-              aria-label={platform} 
-              external 
-            />
-          ))}
-        </div>
+    <footer>
+      <div className="footer-socials">
+        {SOCIAL_LINKS.github && (
+          <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.9c-2.78.62-3.37-1.19-3.37-1.19-.46-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.57 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.9-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/>
+            </svg>
+          </a>
+        )}
+        {SOCIAL_LINKS.linkedin && (
+          <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3-.02-2.96-1.8-2.96-1.8 0-2.08 1.4-2.08 2.86V21h-4V9Z"/>
+            </svg>
+          </a>
+        )}
+        {SOCIAL_LINKS.twitter && (
+          <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M22 5.9c-.7.3-1.5.6-2.3.7.8-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.7A11.6 11.6 0 0 1 3.4 4.6a4.1 4.1 0 0 0 1.3 5.5c-.6 0-1.3-.2-1.8-.5v.1c0 2 1.4 3.6 3.3 4a4.1 4.1 0 0 1-1.9.1c.5 1.7 2.1 2.9 3.9 2.9A8.3 8.3 0 0 1 2 18.4a11.6 11.6 0 0 1 6.3 1.8c7.5 0 11.7-6.3 11.7-11.7v-.5c.8-.6 1.5-1.3 2-2.1Z"/>
+            </svg>
+          </a>
+        )}
+        {SOCIAL_LINKS.email && (
+          <a href={`mailto:${SOCIAL_LINKS.email}`} aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13Zm2.2.5 7.8 6.1L19.8 6H4.2Zm15.8 1.6-7.4 5.8a1 1 0 0 1-1.2 0L4 7.6V18h16V7.6Z"/>
+            </svg>
+          </a>
+        )}
       </div>
-      <div className={styles.bottom}>
-        <span>&copy; {new Date().getFullYear()} The Dialogue</span>
-        <div className={styles.links}>
-          <Link href="/" onClick={handleStartOver} className={styles.linkButton}>Start over</Link>
-          <button onClick={handleClearMemory} className={styles.linkButton}>Clear memory</button>
-        </div>
+      <div>&copy; {new Date().getFullYear()} {SITE_NAME}</div>
+      <div className="footer-actions">
+        <a href="#" onClick={handleStartOver}>Start over</a>
+        <button onClick={handleClearMemory}>Clear memory</button>
       </div>
     </footer>
   );
 }
+
+export default Footer;

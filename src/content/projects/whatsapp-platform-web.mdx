@@ -1,0 +1,19 @@
+---
+title: "Enterprise WhatsApp Messaging & Campaign Web Platform"
+description: "Web application enabling businesses to run WhatsApp messaging operations, bulk campaigns, dynamic Meta template management, and live chat inbox."
+featured: false
+publishedDate: "2024-03-15"
+tags: ["frontend", "fullstack", "realtime"]
+tech: ["Next.js", "React", "TypeScript", "Redux Toolkit", "MUI", "Socket.IO", "Meta WhatsApp API"]
+problem: "Businesses needed a cloud messaging dashboard to compose strict Meta-compliant WhatsApp templates, launch multi-recipient bulk campaigns, and send direct templates within support chats."
+solution: "Built the Meta WhatsApp template creation & editing suite, Send Template Direct inbox module, dynamic variable builder, and bulk campaign file upload validation rules."
+architecture: "Static Next.js SPA exported to Firebase Hosting, consuming microservice endpoints via Axios and socket.io-client for real-time conversation updates."
+results: "Hardened campaign bulk delivery UX and template creation flows adhering strictly to Meta WhatsApp API constraints."
+metrics: "Authored 215+ commits owning template builders, campaign validation, dynamic variable mapping, and pagination to 100+ records."
+---
+
+## Key Capabilities
+
+- **Meta WhatsApp Template Builder**: Multi-component builder supporting dynamic headers, footers, CTAs, button URLs, character count rules, and live mobile preview.
+- **Send Template Direct**: Inbox integration allowing agents to browse, populate dynamic variables, and dispatch approved templates to re-open expired 24-hour messaging windows.
+- **Bulk Campaign Validation**: Dynamic CSV/Excel recipient parsing with country code cleaning, carousel card options, and estimated campaign cost calculation.

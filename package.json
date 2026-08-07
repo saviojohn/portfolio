@@ -21,14 +21,20 @@
     "@next/mdx": "^16.2.9",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
+    "@types/nodemailer": "^8.0.1",
     "framer-motion": "^12.42.1",
     "gray-matter": "^4.0.3",
     "gsap": "^3.15.0",
     "next": "^15.5.18",
+    "nodemailer": "^9.0.5",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "reading-time": "^1.5.0",
+    "resend": "^6.18.1",
     "three": "^0.185.0"
+  },
+  "overrides": {
+    "three": "$three"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.12.1",
