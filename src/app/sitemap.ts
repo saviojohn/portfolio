@@ -2,10 +2,12 @@ import type { MetadataRoute } from 'next';
 import { SITE_URL } from '../lib/config';
 import { getAllProjects, getAllBlogPosts, getAllExperiments } from '../lib/content';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_URL.replace('[REPLACE: ', '').replace(']', '');
 
-  const staticRoutes = ['', '/projects', '/blog', '/about', '/contact', '/meta'].map((route) => ({
+  const staticRoutes = ['', '/projects', '/blog', '/about', '/contact'].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString(),
     changeFrequency: 'weekly' as const,

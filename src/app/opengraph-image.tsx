@@ -1,6 +1,8 @@
 import { ImageResponse } from 'next/og';
 import { SITE_NAME } from '../lib/config';
 
+export const dynamic = 'force-static';
+
 // Image metadata
 export const alt = 'Portfolio Open Graph Image';
 export const size = {

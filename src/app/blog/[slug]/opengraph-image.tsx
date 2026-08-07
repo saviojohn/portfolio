@@ -1,12 +1,21 @@
 import { ImageResponse } from 'next/og';
 import { getAllBlogPosts } from '../../../lib/content';
 
+export const dynamic = 'force-static';
+
 export const alt = 'Blog Post Open Graph Image';
 export const size = {
   width: 1200,
   height: 630,
 };
 export const contentType = 'image/png';
+
+export async function generateStaticParams() {
+  const posts = getAllBlogPosts();
+  return posts.map((p) => ({
+    slug: p.slug,
+  }));
+}
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

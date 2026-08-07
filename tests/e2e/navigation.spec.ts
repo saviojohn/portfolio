@@ -61,11 +61,6 @@ test.describe('Navigation & Core Flows', () => {
     }
   });
 
-  test('/meta page loads', async ({ page }) => {
-    await page.goto('/meta');
-    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
-  });
-
   test('/contact page loads', async ({ page }) => {
     await page.goto('/contact');
     await expect(page.getByRole('heading', { name: /Contact/i })).toBeVisible();

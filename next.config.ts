@@ -18,7 +18,7 @@ const securityHeaders = [
       'font-src \'self\' https://fonts.gstatic.com',
       // blob: required for Three.js canvas operations
       "img-src 'self' data: blob:",
-      "connect-src 'self'",
+      "connect-src 'self' https://api.web3forms.com",
       "frame-src 'none'",
       "object-src 'none'",
       "base-uri 'self'",
@@ -47,6 +47,7 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  output: 'export',
   // Enable MDX support
   pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
 
@@ -77,6 +78,7 @@ const nextConfig: NextConfig = {
 
   // Image optimization
   images: {
+    unoptimized: true,
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [320, 480, 768, 1024, 1440, 2560],
     imageSizes: [16, 32, 64, 128, 256],

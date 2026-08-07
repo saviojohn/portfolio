@@ -1,12 +1,21 @@
 import { ImageResponse } from 'next/og';
 import { getAllProjects } from '../../../lib/content';
 
+export const dynamic = 'force-static';
+
 export const alt = 'Project Open Graph Image';
 export const size = {
   width: 1200,
   height: 630,
 };
 export const contentType = 'image/png';
+
+export async function generateStaticParams() {
+  const projects = getAllProjects();
+  return projects.map((p) => ({
+    slug: p.slug,
+  }));
+}
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

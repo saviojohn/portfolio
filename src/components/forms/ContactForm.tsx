@@ -51,14 +51,22 @@ export function ContactForm() {
     setStatus('loading');
     
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          ...formData,
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
+        })
       });
       
-      if (!response.ok) {
-        throw new Error('Failed to send message');
+      const data = await response.json();
+      
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || 'Failed to send message');
       }
       
       setStatus('success');
