@@ -16,19 +16,27 @@ test.describe('Contact Form', () => {
   });
 
   test('Valid submission shows success message', async ({ page }) => {
+    // Mock Web3Forms API response for deterministic E2E testing
+    await page.route('https://api.web3forms.com/submit', async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify({ success: true, message: 'Form submitted successfully' }),
+      });
+    });
+
     await page.goto('/contact');
     
     // Fill form
-    await page.getByLabel(/Name/i).fill('Test User');
-    await page.getByLabel(/Email/i).fill('test@example.com');
-    await page.getByLabel(/Message/i).fill('Hello, this is a test message from Playwright.');
+    await page.locator('#contact-name').fill('Test User');
+    await page.locator('#contact-email').fill('test@example.com');
+    await page.locator('#contact-message').fill('Hello, this is a test message from Playwright.');
     
     // Submit
     await page.getByRole('button', { name: /Send/i }).click();
     
     // Expect success message
-    // Assuming ContactPage shows this text on success
-    await expect(page.getByText('Message sent successfully', { exact: false })).toBeVisible();
+    await expect(page.getByText("Message sent. I'll get back to you shortly.", { exact: false })).toBeVisible();
   });
 
   test('Context field is pre-filled from dialogue path', async ({ page }) => {

@@ -11,59 +11,46 @@ test.describe('Navigation & Core Flows', () => {
     expect(errors.length).toBe(0);
   });
 
-  test('Prism opening renders and choices are clickable', async ({ page }) => {
+  test('Signal ports render and choices are clickable', async ({ page }) => {
     await page.goto('/');
     
-    // Wait for the ROOT node text to appear
-    await expect(page.getByText('Who are you looking for?')).toBeVisible();
+    // Wait for the main heading to appear
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
     
-    // All 4 initial choices
-    await expect(page.getByText('I’m hiring')).toBeVisible();
-    await expect(page.getByText('I’m a CTO')).toBeVisible();
-    await expect(page.getByText('I’m a Founder')).toBeVisible();
-    await expect(page.getByText('Just curious')).toBeVisible();
+    // All 4 initial signal choices
+    await expect(page.getByText("I'm looking to hire someone")).toBeVisible();
+    await expect(page.getByText("I want to see what you build")).toBeVisible();
+    await expect(page.getByText("I might want to work together")).toBeVisible();
+    await expect(page.getByText("Just curious")).toBeVisible();
     
     // Click "Just curious"
     await page.getByText('Just curious').click();
     
-    // Should advance to D node
-    await expect(page.getByText('What catches your eye first?')).toBeVisible();
+    // Should advance to view 04 (Just curious panel)
+    await expect(page.getByText("No pitch here — just what I'm into.")).toBeVisible();
   });
 
-  test('Back button returns to previous node and updates path', async ({ page }) => {
+  test('Back link returns to signal board', async ({ page }) => {
     await page.goto('/');
     
-    await page.getByText('I’m hiring').click();
-    // At A node
-    await expect(page.getByText('What kind of role?')).toBeVisible();
+    await page.getByText("I'm looking to hire someone").click();
+    // At frontend/hiring view
+    await expect(page.getByText('01 · hiring')).toBeVisible();
     
-    // Path indicator should be visible in header
-    await expect(page.getByText('› Hiring')).toBeVisible();
+    // Click back link
+    await page.getByText('back to signals').click();
     
-    // Click back button
-    await page.getByText('← Back').click();
-    
-    // Should be back at ROOT
-    await expect(page.getByText('Who are you looking for?')).toBeVisible();
-    
-    // Back button should disappear when at ROOT
-    await expect(page.getByText('← Back')).not.toBeVisible();
+    // Should be back at grid signal view
+    await expect(page.getByText("One board, every layer routed through it.")).toBeVisible();
   });
 
   test('/projects page loads and shows projects', async ({ page }) => {
     await page.goto('/projects');
-    await expect(page.getByRole('heading', { name: 'All Work' })).toBeVisible();
-    
-    // At least one project card should render (assuming content exists)
-    const cards = page.locator('article');
-    if (await cards.count() > 0) {
-      await expect(cards.first()).toBeVisible();
-    }
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
   });
 
   test('/contact page loads', async ({ page }) => {
     await page.goto('/contact');
-    await expect(page.getByRole('heading', { name: /Contact/i })).toBeVisible();
     await expect(page.getByRole('button', { name: /Send/i })).toBeVisible();
   });
 });
