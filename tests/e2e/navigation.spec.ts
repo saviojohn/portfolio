@@ -37,8 +37,8 @@ test.describe('Navigation & Core Flows', () => {
     // At frontend/hiring view
     await expect(page.getByText('01 · hiring')).toBeVisible();
     
-    // Click back link
-    await page.getByText('back to signals').click();
+    // Click visible back link
+    await page.locator('.back-link:visible').click();
     
     // Should be back at grid signal view
     await expect(page.getByText("One board, every layer routed through it.")).toBeVisible();
@@ -46,7 +46,7 @@ test.describe('Navigation & Core Flows', () => {
 
   test('/projects page loads and shows projects', async ({ page }) => {
     await page.goto('/projects');
-    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /Selected Works/i })).toBeVisible();
   });
 
   test('/contact page loads', async ({ page }) => {
