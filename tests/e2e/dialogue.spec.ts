@@ -44,7 +44,7 @@ test.describe('Dialogue Engine Core Paths', () => {
     await expect(page.getByText('Scaling is mostly about')).toBeVisible();
   });
 
-  test('Return visit triggers welcome back message via localStorage', async ({ page, context }) => {
+  test('Return visit triggers welcome back message via localStorage', async ({ page }) => {
     // We simulate a previous visit by setting localStorage before page load
     await page.goto('/');
     await page.evaluate(() => {

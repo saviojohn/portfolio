@@ -1,6 +1,6 @@
-import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { loadMemory, saveMemory, updateMemory, clearMemory } from '../../src/lib/dialogue/memory';
-import { DialogueMemory } from '../../src/lib/dialogue/types';
+import type { DialogueMemory } from '../../src/lib/dialogue/types';
 
 describe('Memory System', () => {
   beforeEach(() => {

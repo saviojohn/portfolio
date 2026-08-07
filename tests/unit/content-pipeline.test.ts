@@ -7,9 +7,9 @@ import {
 } from '../../src/lib/content';
 
 describe('Content Pipeline', () => {
-  let existsSyncSpy: any;
-  let readdirSyncSpy: any;
-  let readFileSyncSpy: any;
+  let existsSyncSpy: ReturnType<typeof vi.spyOn>;
+  let readdirSyncSpy: ReturnType<typeof vi.spyOn>;
+  let readFileSyncSpy: ReturnType<typeof vi.spyOn>;
 
   beforeEach(() => {
     existsSyncSpy = vi.spyOn(fs, 'existsSync');
@@ -24,10 +24,10 @@ describe('Content Pipeline', () => {
   describe('getAllProjects', () => {
     it('returns array of Project sorted featured first', () => {
       existsSyncSpy.mockReturnValue(true);
-      readdirSyncSpy.mockReturnValue(['proj1.mdx' as any, 'proj2.mdx' as any]);
+      readdirSyncSpy.mockReturnValue(['proj1.mdx', 'proj2.mdx'] as unknown as ReturnType<typeof fs.readdirSync>);
       
       // proj1 is NOT featured, proj2 IS featured
-      readFileSyncSpy.mockImplementation((pathStr: string | Buffer | URL) => {
+      readFileSyncSpy.mockImplementation((pathStr: string | Buffer | URL | number) => {
         if (pathStr.toString().includes('proj1')) {
           return `---
 title: "Project 1"
@@ -60,7 +60,7 @@ Content 2`;
 
     it('handles missing optional fields without throwing', () => {
       existsSyncSpy.mockReturnValue(true);
-      readdirSyncSpy.mockReturnValue(['minimal.mdx' as any]);
+      readdirSyncSpy.mockReturnValue(['minimal.mdx'] as unknown as ReturnType<typeof fs.readdirSync>);
       
       readFileSyncSpy.mockReturnValue(`---
 title: "Minimal"
@@ -75,7 +75,7 @@ content`);
     
     it('malformed frontmatter throws an error', () => {
       existsSyncSpy.mockReturnValue(true);
-      readdirSyncSpy.mockReturnValue(['bad.mdx' as any]);
+      readdirSyncSpy.mockReturnValue(['bad.mdx'] as unknown as ReturnType<typeof fs.readdirSync>);
       readFileSyncSpy.mockReturnValue(`---
 title: "Bad
 desc: [unclosed array
@@ -102,7 +102,7 @@ content`);
   describe('getAllExperience', () => {
     it('parses dates correctly', () => {
       existsSyncSpy.mockReturnValue(true);
-      readdirSyncSpy.mockReturnValue(['job.mdx' as any]);
+      readdirSyncSpy.mockReturnValue(['job.mdx'] as unknown as ReturnType<typeof fs.readdirSync>);
       
       readFileSyncSpy.mockReturnValue(`---
 company: "Acme"

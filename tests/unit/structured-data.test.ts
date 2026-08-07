@@ -29,7 +29,7 @@ describe('Structured Data', () => {
       excerpt: 'Test Excerpt',
       content: 'Content',
     };
-    const schema = generateArticleSchema(post as any);
+    const schema = generateArticleSchema(post as unknown as Parameters<typeof generateArticleSchema>[0]);
     expect(schema['@context']).toBe('https://schema.org');
     expect(schema['@type']).toBe('Article');
     expect(schema.headline).toBe('Test Post');
@@ -42,7 +42,7 @@ describe('Structured Data', () => {
       title: 'Test Proj',
       description: 'Test Desc',
     };
-    const schema = generateProjectSchema(project as any);
+    const schema = generateProjectSchema(project as unknown as Parameters<typeof generateProjectSchema>[0]);
     expect(schema['@context']).toBe('https://schema.org');
     expect(schema['@type']).toBe('CreativeWork');
     expect(schema.name).toBe('Test Proj');
