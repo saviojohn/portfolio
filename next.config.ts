@@ -47,10 +47,11 @@ const securityHeaders = [
 ];
 
 const isGithubActions = process.env.GITHUB_ACTIONS === 'true';
+const isProduction = process.env.NODE_ENV === 'production';
 
 const nextConfig: NextConfig = {
   output: 'export',
-  basePath: isGithubActions ? '/portfolio' : '',
+  basePath: isGithubActions && isProduction ? '/portfolio' : '',
   // Enable MDX support
   pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
 
