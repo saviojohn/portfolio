@@ -1,12 +1,17 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { SITE_NAME } from '../../lib/config';
 
 export function Header() {
   const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const navItems = [
     { href: '/about', label: 'About' },
@@ -21,7 +26,7 @@ export function Header() {
       </Link>
       <div className="nav-links">
         {navItems.map((item) => {
-          const isActive = pathname === item.href || (item.href !== '/' && pathname?.startsWith(item.href));
+          const isActive = mounted && (pathname === item.href || (item.href !== '/' && pathname?.startsWith(item.href)));
           return (
             <Link
               key={item.href}

@@ -521,9 +521,27 @@ footer {
   color: var(--muted);
 }
 
-@media (max-width: 600px) {
-  nav, footer {
-    padding: 18px 20px;
+@media (max-width: 640px) {
+  nav {
+    padding: 16px 20px;
+  }
+  footer {
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 20px 40px;
+    text-align: center;
+  }
+  .footer-socials {
+    justify-content: center;
+    gap: 24px;
+  }
+  .footer-socials svg {
+    width: 18px;
+    height: 18px;
+  }
+  .footer-actions {
+    justify-content: center;
+    gap: 20px;
   }
   main {
     padding: 20px 18px 40px;
