@@ -1,13 +1,17 @@
 ---
-company: "Data Equinox"
-role: "Full-Stack & Mobile Engineer"
-startDate: "2024-03-01T00:00:00Z"
+company: "DataEquinox"
+role: "Software Engineer"
+startDate: "2023-12-01T00:00:00Z"
 endDate: ""
 highlights:
-  - "Built cross-platform iOS & Android mobile applications using Flutter, Dart, Riverpod, Socket.IO, and FCM push notifications."
-  - "Engineered multi-module Next.js web applications (App Router & Pages Router) with TypeScript, Redux Toolkit, MUI, and static SPA exports."
-  - "Architected backend APIs using Python (FastAPI, Async SQLAlchemy, Alembic, PostgreSQL, Redis, RabbitMQ) for multi-corridor remittance and notification queues."
-  - "Integrated real-time WebSocket messaging, single-flight token refresh interceptors, thermal receipt PDF printing, and client-side QR verification."
+  - "Built a customer-facing fintech mobile app end-to-end (Flutter, Riverpod, GoRouter, Dio) — Flutter Secure Storage-backed auth, KYC document verification, multi-currency wallets, config-driven FX/remittance transfer flows, and in-app support chat — spanning 15 feature modules on iOS and Android"
+  - "Implemented a real-time sync layer (Socket.IO, 14+ event types) keeping wallet balances, transaction status, and chat updated without manual refresh, plus FCM/APNs push notifications with deep-link navigation"
+  - "Shipped bilingual EN/JA localization (~1,232 keys/locale) with backend locale-map resolution that preserves in-progress transfer/KYC state across language switches"
+  - "Built an end-to-end Firebase Cloud Messaging pipeline (device registry, RabbitMQ workers, Redis dedupe/rate-limiting) for a FastAPI remittance backend (PostgreSQL, Alembic, Dockerized), delivering push notifications across 4 customer event types"
+  - "Implemented a secure forgot-password flow (OTP via AWS SES, Redis-backed sessions, rate limiting, JWT invalidation on reset), covered by 13 automated tests"
+  - "Built customer-account modules (address/profile CRUD, wishlist, dual-auth order invoices for guest and logged-in users) with Formik/Yup validated forms and Google Tag Manager e-commerce instrumentation (10+ event types) for a retail storefront"
+  - "Built and deployed (Firebase Hosting, GitHub Actions CI/CD) a staff/security gate-pass admin module integrating 17 REST endpoints for CRUD, filtering, pagination, and QR-based check-in/check-out workflows, with thermal-print (80mm) pass generation and Excel export"
+  - "Built WhatsApp template creation, campaign broadcast hardening, and Meta embedded signup onboarding for a business messaging platform supporting 25+ reseller brand configurations across 6 locales"
 ---
 
-As a Full-Stack & Mobile Engineer at Data Equinox, I engineer production mobile and web software spanning cross-border remittance, real-time AI customer support, enterprise WhatsApp messaging, and retail e-commerce management platforms.
+As a Software Engineer at DataEquinox (Dec 2023 – Present), I engineer production mobile (Flutter), web (Next.js/React), and backend (Python/FastAPI) systems across fintech, real-time messaging, security gate-pass admin, and retail storefronts.

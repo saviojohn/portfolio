@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+import path from 'path';
 import withBundleAnalyzerInit from '@next/bundle-analyzer';
 
 const withBundleAnalyzer = withBundleAnalyzerInit({
@@ -51,34 +52,37 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 const nextConfig: NextConfig = {
   output: 'export',
+  outputFileTracingRoot: path.join(__dirname),
   basePath: isGithubActions && isProduction ? '/portfolio' : '',
   // Enable MDX support
   pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
 
-  // Security headers on all routes
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: securityHeaders,
-      },
-      {
-        // No caching for API routes
-        source: '/api/(.*)',
-        headers: [{ key: 'Cache-Control', value: 'no-store' }],
-      },
-      {
-        // Immutable cache for hashed static assets
-        source: '/_next/static/(.*)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-    ];
-  },
+  // Security headers on dev server (not applied during static export)
+  ...(process.env.NODE_ENV !== 'production'
+    ? {
+        async headers() {
+          return [
+            {
+              source: '/(.*)',
+              headers: securityHeaders,
+            },
+            {
+              source: '/api/(.*)',
+              headers: [{ key: 'Cache-Control', value: 'no-store' }],
+            },
+            {
+              source: '/_next/static/(.*)',
+              headers: [
+                {
+                  key: 'Cache-Control',
+                  value: 'public, max-age=31536000, immutable',
+                },
+              ],
+            },
+          ];
+        },
+      }
+    : {}),
 
   // Image optimization
   images: {

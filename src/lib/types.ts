@@ -38,3 +38,17 @@ export interface Experience {
   endDate?: string; // Optional for current roles
   highlights?: string[];
 }
+
+export interface Certification {
+  slug: string;
+  title: string;
+  issuer: string;
+  issueDate: string;
+  credentialId?: string;
+  credentialUrl?: string;
+  image?: string;
+  tags?: string[];
+  description?: string;
+  featured?: boolean;
+}
+

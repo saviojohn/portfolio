@@ -7,7 +7,7 @@ export const dynamic = 'force-static';
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_URL.replace('[REPLACE: ', '').replace(']', '');
 
-  const staticRoutes = ['', '/projects', '/blog', '/about', '/contact'].map((route) => ({
+  const staticRoutes = ['', '/projects', '/blog', '/about', '/certifications', '/resume', '/contact'].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString(),
     changeFrequency: 'weekly' as const,

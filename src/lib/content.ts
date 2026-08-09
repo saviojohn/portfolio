@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import type { Project, BlogPost, Experiment, Experience } from './types';
+import type { Project, BlogPost, Experiment, Experience, Certification } from './types';
 
 const contentDirectory = path.join(process.cwd(), 'src/content');
 
@@ -157,3 +157,46 @@ export function getUniqueBlogTags(): string[] {
   posts.forEach((p) => p.tags?.forEach((t) => tags.add(t)));
   return Array.from(tags).sort();
 }
+
+export function getAllCertifications(): Certification[] {
+  const directory = path.join(contentDirectory, 'certifications');
+  const filenames = getFiles(directory);
+
+  const certifications: Certification[] = filenames.map((filename) => {
+    const slug = filename.replace(/\.mdx$/, '');
+    const fullPath = path.join(directory, filename);
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const { data, content } = matter(fileContents);
+
+    const iDate = data.issueDate instanceof Date 
+      ? data.issueDate.toISOString() 
+      : (data.issueDate ? String(data.issueDate) : new Date().toISOString());
+
+    return {
+      slug,
+      title: data.title || '',
+      issuer: data.issuer || '',
+      issueDate: iDate,
+      credentialId: data.credentialId || '',
+      credentialUrl: data.credentialUrl || '',
+      image: data.image || '',
+      tags: data.tags || [],
+      description: data.description || content.trim() || '',
+      featured: data.featured || false,
+    };
+  });
+
+  return certifications.sort((a, b) => {
+    if (a.featured && !b.featured) return -1;
+    if (!a.featured && b.featured) return 1;
+    return new Date(b.issueDate).getTime() - new Date(a.issueDate).getTime();
+  });
+}
+
+export function getUniqueCertificationTags(): string[] {
+  const certifications = getAllCertifications();
+  const tags = new Set<string>();
+  certifications.forEach((c) => c.tags?.forEach((t) => tags.add(t)));
+  return Array.from(tags).sort();
+}
+
