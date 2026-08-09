@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" width="100%" height="100%">
+  <!-- Background -->
+  <rect width="800" height="560" fill="#ffffff"/>
+  
+  <!-- Top Banner Gradient -->
+  <defs>
+    <linearGradient id="awsBannerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e05638"/>
+      <stop offset="35%" stop-color="#d97706"/>
+      <stop offset="70%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="180" fill="url(#awsBannerGrad)"/>
+  
+  <!-- AWS Banner Content -->
+  <g transform="translate(40, 45)" fill="#ffffff">
+    <text x="0" y="24" font-family="Arial, sans-serif" font-size="28" font-weight="900" letter-spacing="-1">aws</text>
+    <path d="M0 32 Q 22 42 44 32 M38 29 L44 32 L39 37" fill="none" stroke="#ff9900" stroke-width="3" stroke-linecap="round"/>
+    
+    <text x="0" y="85" font-family="Arial, sans-serif" font-size="38" font-weight="800">Builders Online Series</text>
+    <text x="0" y="115" font-family="Arial, sans-serif" font-size="18" font-weight="400" opacity="0.95">Your quick start to AWS</text>
+  </g>
+  
+  <!-- Center Main Body -->
+  <g transform="translate(400, 260)" text-anchor="middle">
+    <text x="0" y="30" font-family="Arial, sans-serif" font-size="30" font-weight="800" fill="#e05638" letter-spacing="2">CERTIFICATE OF ATTENDANCE</text>
+    
+    <text x="0" y="90" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#374151" letter-spacing="1.5">THIS CERTIFICATE IS AWARDED TO</text>
+    
+    <text x="0" y="140" font-family="Arial, sans-serif" font-size="36" font-weight="900" fill="#111827">Savio John</text>
+    <line x1="-220" y1="155" x2="220" y2="155" stroke="#111827" stroke-width="2"/>
+    
+    <text x="0" y="210" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#111827" letter-spacing="1">ON 21 JANUARY, 2021</text>
+  </g>
+</svg>

@@ -203,7 +203,8 @@ const htmlContent = `<!DOCTYPE html>
 
   <div class="section-title" style="margin-top: 8px;">CERTIFICATIONS</div>
   <div class="cert-item">• JavaScript, React & Frontend System Design — NamasteDev (Akshay Saini)</div>
-  <div class="cert-item">• DB Foundations (Oracle) · SQL Queries (DataCamp) · GCP Training (Qwiklabs)</div>
+  <div class="cert-item">• Databases for Developers (98%) — Oracle Dev Gym · Introduction to SQL (#17733495) — DataCamp</div>
+  <div class="cert-item">• Microsoft AI Classroom Series — Microsoft & NASSCOM · AWS Builders Series — Amazon Web Services</div>
 </body>
 </html>
 `;

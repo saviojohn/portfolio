@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <!-- Background & Left Bar -->
+  <rect width="800" height="500" fill="#fcfbfa"/>
+  <rect width="220" height="500" fill="#05192d"/>
+  
+  <!-- Left Bar Logo -->
+  <g transform="translate(60, 190)">
+    <path d="M20 20 L50 45 L20 70 Z M50 45 L80 20 L80 90 L50 65 Z" fill="#00e676"/>
+  </g>
+  
+  <!-- Right Content Area -->
+  <text x="250" y="55" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="bold" fill="#6b7280" letter-spacing="1">#17,733,495</text>
+  <text x="760" y="55" font-family="'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="900" fill="#05192d" letter-spacing="2" text-anchor="end">STATEMENT OF ACCOMPLISHMENT</text>
+  
+  <!-- Recipient & Course -->
+  <text x="250" y="140" font-family="'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="bold" fill="#7c3aed" letter-spacing="1.5">HAS BEEN AWARDED TO</text>
+  <text x="250" y="185" font-family="'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="900" fill="#0f172a">Savio John</text>
+  
+  <text x="250" y="245" font-family="'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="bold" fill="#7c3aed" letter-spacing="1.5">FOR SUCCESSFULLY COMPLETING</text>
+  <text x="250" y="295" font-family="'Helvetica Neue', Arial, sans-serif" font-size="38" font-weight="900" fill="#0f172a">Introduction to SQL</text>
+  
+  <!-- Footer Row -->
+  <text x="250" y="390" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="bold" fill="#6b7280">COMPLETED ON</text>
+  <text x="250" y="415" font-family="'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="900" fill="#0f172a">FEB 28, 2021</text>
+  
+  <!-- DataCamp Brand Mark -->
+  <g transform="translate(460, 395)">
+    <path d="M5 5 L15 13 L5 21 Z M15 13 L25 5 L25 27 L15 19 Z" fill="#05192d"/>
+    <text x="32" y="20" font-family="'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="900" fill="#05192d">datacamp</text>
+  </g>
+  
+  <!-- Signature -->
+  <g transform="translate(640, 385)">
+    <path d="M10 20 Q 30 5 60 18 T 100 12" fill="none" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="0" y1="28" x2="120" y2="28" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="60" y="43" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="bold" fill="#475569" text-anchor="middle">Jonathan Cornelissen, CEO</text>
+  </g>
+</svg>

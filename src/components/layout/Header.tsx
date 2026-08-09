@@ -7,12 +7,7 @@ import { SITE_NAME } from '../../lib/config';
 
 export function Header() {
   const pathname = usePathname();
-  const [mounted, setMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   // Close mobile menu when pathname changes
   useEffect(() => {
@@ -28,8 +23,8 @@ export function Header() {
   ];
 
   return (
-    <header className="header-container">
-      <nav className="nav-bar">
+    <header className="header-container" suppressHydrationWarning>
+      <nav className="nav-bar" suppressHydrationWarning>
         <Link href="/" className="nav-name">
           <span className="nav-status-dot" title="Available for selected projects" />
           <span className="nav-brand-text">{SITE_NAME}</span>
@@ -48,7 +43,7 @@ export function Header() {
         {/* Desktop & Mobile Navigation Links */}
         <div className={`nav-links ${mobileMenuOpen ? 'nav-links-open' : ''}`}>
           {navItems.map((item) => {
-            const isActive = mounted && (pathname === item.href || (item.href !== '/' && pathname?.startsWith(item.href)));
+            const isActive = pathname === item.href || (item.href !== '/' && Boolean(pathname?.startsWith(item.href)));
             return (
               <Link
                 key={item.href}

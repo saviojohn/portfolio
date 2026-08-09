@@ -204,7 +204,10 @@ export default function ResumePage() {
                   <strong>JavaScript, React &amp; Frontend System Design</strong> — NamasteDev (Akshay Saini)
                 </li>
                 <li>
-                  <strong>DB Foundations (Oracle)</strong> · <strong>SQL Queries (DataCamp)</strong> · <strong>GCP Training (Qwiklabs)</strong>
+                  <strong>Databases for Developers (98%)</strong> — Oracle Dev Gym · <strong>Introduction to SQL (#17733495)</strong> — DataCamp
+                </li>
+                <li>
+                  <strong>Microsoft AI Classroom Series</strong> — Microsoft &amp; NASSCOM · <strong>AWS Builders Series</strong> — Amazon Web Services
                 </li>
               </ul>
             </section>
