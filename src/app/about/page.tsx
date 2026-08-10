@@ -61,11 +61,11 @@ export default function AboutPage() {
           <div className="card-grid" style={{ marginBottom: '32px' }}>
             <div className="info-card" style={{ gridColumn: '1 / -1' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '6px' }}>
-                <h3 style={{ margin: 0, color: 'var(--cyan)' }}>Amrita Vishwa Vidyapeetham</h3>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--faint)' }}>Kochi, Kerala, India</span>
+                <h3 style={{ margin: 0, color: 'var(--cyan)' }}>Amrita Vishwa Vidyapeetham, Amritapuri</h3>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--faint)' }}>Kollam, Kerala, India</span>
               </div>
               <p style={{ margin: 0, color: 'var(--muted)', fontSize: '13.5px' }}>
-                Degree Studies in Computer Science and Engineering.
+                Bachelor of Computer Applications (BCA), 2020 – 2023.
               </p>
             </div>
           </div>

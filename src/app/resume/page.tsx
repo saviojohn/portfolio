@@ -183,10 +183,10 @@ export default function ResumePage() {
               <h2 className={styles.sectionTitle}>EDUCATION</h2>
               <div className={styles.experienceHeader}>
                 <h3 className={styles.companyRole}>
-                  Amrita Vishwa Vidyapeetham — <span className={styles.companyName}>Bachelor of Computer Applications (BCA)</span>
+                  Amrita Vishwa Vidyapeetham, Amritapuri — <span className={styles.companyName}>Bachelor of Computer Applications (BCA)</span>
                 </h3>
                 <span className={styles.dateLocation} style={{ fontSize: '13px', fontWeight: 600, color: 'var(--cyan)' }}>
-                  2020 – 2023
+                  2020 – 2023 | Kollam, Kerala, India
                 </span>
               </div>
             </section>

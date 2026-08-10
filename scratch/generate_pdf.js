@@ -197,8 +197,8 @@ const htmlContent = `<!DOCTYPE html>
 
   <div class="section-title">EDUCATION</div>
   <div class="edu-row">
-    <span><b>Amrita Vishwa Vidyapeetham</b> — Bachelor of Computer Applications (BCA)</span>
-    <span><b>2020 – 2023</b></span>
+    <span><b>Amrita Vishwa Vidyapeetham, Amritapuri</b> — Bachelor of Computer Applications (BCA)</span>
+    <span><b>2020 – 2023 | Kollam, Kerala</b></span>
   </div>
 
   <div class="section-title" style="margin-top: 8px;">CERTIFICATIONS</div>
